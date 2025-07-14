@@ -1,6 +1,6 @@
 # 🧠 Early Detection of Parkinson's Disease using Dual-Modal Machine Learning
 
-This repository accompanies the research paper **"Advancing Early Detection of Parkinson’s Disease Through Dual-Modal Machine Learning on Speech and Gait Data"**, presented at ICMLA. It explores the potential of **non-invasive, interpretable AI models** for detecting early signs of Parkinson's Disease (PD) using **speech** and **gait** data.
+This repository accompanies the research paper **"Advancing Early Detection of Parkinson’s Disease Through Dual-Modal Machine Learning on Speech and Gait Data"**. It explores the potential of **non-invasive, interpretable AI models** for detecting early signs of Parkinson's Disease (PD) using **speech** and **gait** data.
 
 ## 🧩 Project Overview
 
