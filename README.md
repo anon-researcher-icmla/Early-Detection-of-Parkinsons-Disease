@@ -1,27 +1,82 @@
-# 🧠 Early Detection of Parkinson's Disease using Machine Learning
+# 🧠 Early Detection of Parkinson's Disease using Dual-Modal Machine Learning
 
-## Introduction
+This repository accompanies the research paper **"Advancing Early Detection of Parkinson’s Disease Through Dual-Modal Machine Learning on Speech and Gait Data"**, presented at ICMLA. It explores the potential of **non-invasive, interpretable AI models** for detecting early signs of Parkinson's Disease (PD) using **speech** and **gait** data.
 
-Parkinson's Disease (PD) is a progressive neurodegenerative disorder that affects millions of people worldwide. Characterized by tremors, muscle rigidity, bradykinesia (slowness of movement), and speech impairments, PD significantly impacts the quality of life of patients. One of the major challenges in managing Parkinson’s Disease is its late diagnosis — often based on subjective clinical observation and motor symptoms that appear in the advanced stages of the disease.
+## 🧩 Project Overview
 
-This research project focuses on developing machine learning models that can aid in the **early and accurate detection** of Parkinson’s Disease using quantifiable biomedical voice measurements and sensor-based motor data. By leveraging data-driven techniques and neural networks, this project aims to:
+Parkinson’s Disease is often diagnosed too late — after substantial neurological damage has occurred. This project presents a **dual-modal machine learning framework** that independently analyzes **vocal recordings** and **gait signals** to detect PD at an early stage. Our models leverage classical ML, deep learning (LSTM), and SHAP-based explainability to deliver **transparent**, **accurate**, and **clinically aligned** predictions.
 
-- Analyze and preprocess speech and motor-related datasets
-- Combine and synthesize multiple datasets for better prediction performance
-- Identify significant biomarkers and features related to early PD detection
-- Build and compare multiple machine learning and deep learning models
-- Achieve high prediction accuracy and model interpretability
+## 📚 Datasets Used
 
-The ultimate goal of this project is to contribute to the development of **AI-assisted diagnostic tools** that can support healthcare professionals and improve early intervention strategies.
+### 1. **Speech Dataset**  
+- Source: [UCI Parkinson’s Dataset](https://archive.ics.uci.edu/dataset/174/parkinsons)  
+- 195 recordings from 31 individuals  
+- 22 acoustic features: jitter, shimmer, MFCCs, HNR, etc.
 
-This repository includes:
+### 2. **Gait Dataset**  
+- Source: [WearGait-PD on Synapse](https://www.synapse.org/Synapse:syn52540892/wiki/)  
+- 271 subjects with 196 gait features each  
+- Features from accelerometer and gyroscope readings: stride length, postural sway, swing time, etc.
 
-- 📊 Exploratory Data Analysis (EDA)
-- ⚙️ Feature Engineering and Selection
-- 🤖 Machine Learning and Neural Network Implementation
-- 📈 Model Evaluation and Metrics
-- 📁 Dataset documentation and reproducibility
+## ⚙️ Methodology
 
-> This project is part of an ongoing academic research effort and is continuously evolving with experimentation, tuning, and validation.
+### 🧼 Data Preprocessing
+- Removed irrelevant metadata
+- Z-score normalization for scale-sensitive models
+- Handled missing data via median imputation
+- Addressed class imbalance with **SMOTE**
+
+### 🔍 Feature Engineering
+- LASSO + Recursive Feature Elimination (RFE)
+- Pearson correlation heatmaps & VIF analysis to remove multicollinearity
+
+### 🤖 Models Used
+| Type              | Models                                        |
+|-------------------|-----------------------------------------------|
+| Classical ML       | Logistic Regression, SVM, Random Forest, XGBoost |
+| Deep Learning      | Stacked LSTM (2 layers)                        |
+
+- Hyperparameter tuning via grid search (5-fold CV)
+- Evaluation metrics: Accuracy, Precision, Recall, F1-Score
+- Model interpretability: **SHAP (SHapley Additive Explanations)**
+
+## 📊 Key Results
+
+| Modality | Model         | Accuracy |
+|----------|---------------|----------|
+| Gait     | LSTM          | **96%**  |
+| Speech   | LSTM          | **97%**  |
+| Gait     | Gradient Boosting | 93% |
+| Speech   | Logistic Regression / SVM | 92% |
+
+- **SHAP** analysis highlighted physiologically valid predictors such as:
+  - Gait: Stride width, Step ratio, Swing time
+  - Speech: Pitch Period Entropy (PPE), shimmer, jitter
+
+## 🩺 Interpretability and Clinical Relevance
+
+By integrating SHAP, our framework offers:
+- **Global and local interpretability**
+- **Visual explanations** for each prediction (e.g., force plots)
+- Alignment with known PD indicators, building clinician trust
+
+## ⚖️ Ethical Considerations
+
+- Emphasized transparency in AI decision-making
+- Models avoid black-box risks through feature attribution
+- Future iterations will incorporate fairness audits and privacy compliance (e.g., HIPAA, GDPR)
+
+## 🔭 Future Work
+
+- Validate on larger and more diverse populations
+- Extend to multimodal fusion (e.g., combining speech + gait)
+- Deploy lightweight versions for real-time monitoring via mobile apps
+- Explore transfer learning and longitudinal modeling for disease progression
+
+## 📎 Supplementary Materials
+
+All code, model training scripts, and SHAP visualizations are available in this repository.
+
+
 
 
