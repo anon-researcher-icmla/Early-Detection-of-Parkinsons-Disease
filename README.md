@@ -11,3 +11,17 @@ This research project focuses on developing machine learning models that can aid
 - Identify significant biomarkers and features related to early PD detection
 - Build and compare multiple machine learning and deep learning models
 - Achieve high prediction accuracy and model interpretability
+
+The ultimate goal of this project is to contribute to the development of **AI-assisted diagnostic tools** that can support healthcare professionals and improve early intervention strategies.
+
+This repository includes:
+
+- 📊 Exploratory Data Analysis (EDA)
+- ⚙️ Feature Engineering and Selection
+- 🤖 Machine Learning and Neural Network Implementation
+- 📈 Model Evaluation and Metrics
+- 📁 Dataset documentation and reproducibility
+
+> This project is part of an ongoing academic research effort and is continuously evolving with experimentation, tuning, and validation.
+
+
